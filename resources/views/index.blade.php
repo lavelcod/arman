@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <!-- داخل تگ <head> بذار -->
-    <link rel="icon" type="image/png" href="{{ asset('/etminansaf.jpg') }}">
-    <link rel="shortcut icon" href="{{ asset('/etminansaf.jpg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('uploads/logo/etminansaf.jpg') }}">
+    <link rel="shortcut icon" href="{{ asset('uploads/logo/etminansaf.jpg') }}">
      <meta name="description" content="خدمات نمایندگی‌های ETMINANSAF در سراسر کشور. مشاهده آدرس، شماره تماس و مشخصات نمایندگان.">
     <title>etminansaf</title>
     <style>
@@ -355,7 +355,7 @@ footer p { margin: 4px 0; }
 
 <header>
     <a href="{{ route('index', ['lang' => app()->getLocale()]) }}" class="logo">
-        <img src="{{ asset('/etminansaf.jpg') }}" alt="Etminan saf" class="logo-img">
+        <img src="{{ asset('uploads/logo/etminansaf.jpg') }}" alt="Etminan saf" class="logo-img">
         <span>ETMINANSAF</span>
     </a>
 
@@ -408,7 +408,7 @@ footer p { margin: 4px 0; }
   <div class="swiper-wrapper">
     @foreach($sliders as $slider)
       <div class="swiper-slide">
-        <img src="{{ asset('$slider->image) }}" alt="اسلاید {{ $loop->iteration }}">
+        <img src="{{ asset('uploads/' . $slider->image) }}" alt="اسلاید {{ $loop->iteration }}">
       </div>
     @endforeach
   </div>
@@ -429,17 +429,16 @@ footer p { margin: 4px 0; }
     },
     pagination: {
       el: ".swiper-pagination",
-      clickable: true,
+      clickable: true
     },
     navigation: {
       nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      prevEl: ".swiper-button-prev"
     },
     effect: "slide",
     speed: 800
   });
 </script>
-
 
     <h2>{{ __('messages.products') }}</h2>
     <div class="products-grid">
@@ -447,7 +446,7 @@ footer p { margin: 4px 0; }
         <div class="product-card">
             <div style="position: relative;">
                <img
-                src="{{ $product->images->first() ? asset($product->images->first()->image) : asset('default.png') }}"
+                src="{{ $product->images->first() ? asset('uploads/' . $product->images->first()->image) : asset('uploads/default.png') }}"
                 alt="{{ $product->getTranslatedName() }}">
 
             </div>
